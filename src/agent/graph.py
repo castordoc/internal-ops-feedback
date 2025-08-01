@@ -48,7 +48,7 @@ async def call_model(state: State, config: RunnableConfig) -> Dict[str, Any]:
 # Define the graph
 from langgraph.prebuilt import create_react_agent
 graph = create_react_agent(
-    "anthropic:claude-3-5-haiku-latest",
+    "openai:gpt-4o",
     tools=[],
     prompt="You are a friendly, curious, geeky AI."
 )
