@@ -46,9 +46,9 @@ async def call_model(state: State, config: RunnableConfig) -> Dict[str, Any]:
 
 
 # Define the graph
-graph = (
-    StateGraph(State, config_schema=Configuration)
-    .add_node(call_model)
-    .add_edge("__start__", "call_model")
-    .compile(name="New Graph")
+from langgraph.prebuilt import create_react_agent
+graph = create_react_agent(
+    "anthropic:claude-3-5-haiku-latest"
+    tools=[],
+    prompt="You are a friendly, curious, geeky AI.",
 )
